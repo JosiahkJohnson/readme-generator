@@ -29,7 +29,7 @@ const response ={
 //aync function so I can use await
 async function writeReadme(){
     const markdown = createReadme(response);
-    await writeFileAsync("README.MD", markdown);
+    await writeFileAsync("README.md", markdown);
 }
 
 writeReadme();
