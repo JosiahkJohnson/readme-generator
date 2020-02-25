@@ -10,15 +10,15 @@ const writeFileAsync = util.promisify(fs.writeFile);
 function createReadme(info){
     //All this will be written into the readme
     return `
-    # ${info.title}
-    [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
+# ${info.title}
+[![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
     
-    ## Table of Contents
-    1.[ ### Description](#Description)
+## Table of Contents
+1.[ ### Description](#Description)
 
-    ## Description:<a name = "Description"></a>
-    ${info.description}
-    `
+## Description:<a name = "Description"></a>
+${info.description}
+`
 }
 
 const response ={
