@@ -1,6 +1,6 @@
 
-# Awesome Project
-[![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
+# Readme Generator
+[![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://github.com/JosiahkJohnson)
     
 ## Table of Contents
 1. [Description](#Description)
@@ -13,25 +13,25 @@
 8. [Github Info](#Info)
 
 ## Description:<a name = "Description"></a>
-This is a test description for my awesome project that will automatically create these readmes so I don't have to.
+This is an automated readme generator that uses node to generate a readme via command line for a default template.
 
 ## Installation Requirements:<a name = "Installation"></a>
-installation instructions
+You will need inquirer, fs, and axios. Npm i, should install everything you need for you.
 
 ## Usage:<a name = "Usage"></a>
-Usage instructions here
+Run the program and answer the questions, like in the animated gif demonstration.
 
 ## License:<a name = "License"></a>
-Applicable licenses here
+Not applicable to this project.
 
 ## Contributing:<a name = "Contributing"></a>
-Contribution instructions here
+Not applicable to this project.
 
 ## Tests:<a name = "Tests"></a>
-Info on testing here
+not applicable to this project.
 
 ## Questions:<a name = "Questions"></a>
-Questions here
+Not applicable to this project.
 
 ## Github info:<a name = "Info"></a>
 
@@ -39,3 +39,8 @@ Questions here
 
 ### Email me at:
 josiahkj123@gmail.com
+
+[repository](https://github.com/JosiahkJohnson/readme-generator)
+[gitPage](https://josiahkjohnson.github.io/readme-generator/)
+
+![gif-demo](media/Readme-generator.gif)

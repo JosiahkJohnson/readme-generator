@@ -1,7 +1,7 @@
 const fs = require("fs");
-const inquirer = require("inquirer");
 const util = require("util");
 const api = require("./api");
+const inquirer = require("inquirer");
 
 //set a variable to write a new readme.md file
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -11,7 +11,7 @@ function createReadme(info, token){
     //All this will be written into the readme
     return `
 # ${info.title}
-[![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
+[![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://github.com/${token.data.login})
     
 ## Table of Contents
 1. [Description](#Description)
@@ -53,26 +53,88 @@ ${token.data.email}
 `
 }
 
-const response ={
-    title: "Awesome Project",
-    description: "This is a test description for my awesome project that will automatically create these readmes so I don't have to.",
-    installation: "installation instructions",
-    usage: "Usage instructions here",
-    license: "Applicable licenses here",
-    contributing: "Contribution instructions here",
-    tests: "Info on testing here",
-    questions: "Questions here"
-};
-
 //aync function so I can use await
 async function writeReadme(response, token){
     const markdown = createReadme(response, token);
     await writeFileAsync("README.md", markdown);
+
+    console.log("readme generated.")
 }
 
-//writeReadme();
-let userToken = api.getUser("JosiahKJohnson");
+//prompt user function to get user info
+function promptUser(){
+    return inquirer.prompt([
+        {
+            type: "input",
+            name: "gitHub",
+            message: "Enter github ID"
+        },
+        {
+            type: "input",
+            name: "title",
+            message: "Title of Project"
+        },
+        {
+            type: "input",
+            name: "description",
+            message: "Enter a description of the project"
+        },
+        {
+            type: "input",
+            name: "installation",
+            message: "Enter installation instructions"
+        },
+        {
+            type: "input",
+            name: "usage",
+            message: "Enter usage instructions"
+        },
+        {
+            type: "input",
+            name: "license",
+            message: "Enter applicable licenses",
+            default: "Not applicable to this project."
+        },
+        {
+            type: "input",
+            name: "contributing",
+            message: "Enter contribution instructions",
+            default: "Not applicable to this project."
+        },
+        {
+            type: "input",
+            name: "tests",
+            message: "Enter tests here",
+            default: "not applicable to this project."
+        },
+        {
+            type: "input",
+            name: "questions",
+            message: "applicable questions",
+            default: "Not applicable to this project."
+        }
+    ]);
+}
 
-userToken.then(function(result){
-    writeReadme(response, result);
-});
+//function that kicks off the program
+async function init(){
+    //welcome message
+    console.log("Welcome to the readme generator, a series of questions will help automatically generate a readme for you.");4
+
+    //set some variables based on user response
+    const response = await promptUser();
+    const userToken = api.getUser(response.gitHub);
+    
+    //call the readme writing function after receiving data
+    userToken.then(function(result){
+        writeReadme(response, result);
+    });
+}
+
+init();
+
+// let userToken = api.getUser("JosiahKJohnson");
+
+// userToken.then(function(result){
+//     console.log(result);
+// });
