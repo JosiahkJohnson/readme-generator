@@ -14,14 +14,14 @@ function createReadme(info, token){
 [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
     
 ## Table of Contents
-1.[### Description](#Description)
-2.[### Installation](#Installation)
-3.[### Usage](#Usage)
-4.[### License](#License)
-5.[### Contributing](#Contributing)
-6.[### Tests](#Tests)
-7.[### Questions](#Questions)
-8.[### Github Info](#Info)
+1. [Description](#Description)
+2. [Installation](#Installation)
+3. [Usage](#Usage)
+4. [License](#License)
+5. [Contributing](#Contributing)
+6. [Tests](#Tests)
+7. [Questions](#Questions)
+8. [Github Info](#Info)
 
 ## Description:<a name = "Description"></a>
 ${info.description}
@@ -44,9 +44,9 @@ ${info.tests}
 ## Questions:<a name = "Questions"></a>
 ${info.questions}
 
-## Github info:<a name = "Info></a>
+## Github info:<a name = "Info"></a>
 
-![alt text](${token.data.avatar_url}"Profile picture")
+![alt text](${token.data.avatar_url})
 
 ### Email me at:
 ${token.data.email}
